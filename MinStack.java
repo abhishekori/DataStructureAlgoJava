@@ -25,13 +25,28 @@ public class MinStack {
   }
 
   public static void main(String[] args) {
-    System.out.println("Hello World");
-    MinStack s=new MinStack();
-    s.push(Integer.parseInt(args[0]));
-    s.push(Integer.parseInt(args[1]));
-    s.push(Integer.parseInt(args[2]));
-    s.push(Integer.parseInt(args[3]));
+    
+int i;
+MinStack s=new MinStack();
+if(args.length>0)
+{
+  for (i=0;i<args.length;i++ ) {
 
-    System.out.println(s.getMin());
+    s.push(Integer.parseInt(args[i]));
+  }
+System.out.println(s.getMin());
+}else{
+  System.out.println("please pass the values");
+}
+
+
+      // s.push(Integer.parseInt(args[1]));
+      // s.push(Integer.parseInt(args[2]));
+      // s.push(Integer.parseInt(args[3]));
+
+
+
+
+
   }
 }
