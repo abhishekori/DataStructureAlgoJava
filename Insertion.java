@@ -6,11 +6,7 @@ public class Insertion{
 
   public Insertion(int length){
     list = new int[length];
-    // list[0]=5;
-    // list[1]=6;
-    // list[2]=2;
-    // list[3]=9;
-    // list[4]=1;
+
   }
 
 
