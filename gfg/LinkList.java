@@ -23,6 +23,26 @@ class  LinkList{
 		}
 	}
 
+
+	// void deleteNode(int key){
+	// 	Node temp=head,prev=null;
+
+	// 	if(temp!=null && temp.data==key)
+	// 	{
+	// 		head=temp.next;
+	// 		return
+	// 	}
+
+	// 	while(temp!=null && temp.data!=key)
+	// 	{
+	// 		prev=temp;
+	// 		temp=temp.next;
+	// 	}
+
+
+	// 	prev.next=temp.next;
+	// }
+
 	void pushNode(int new_data){
 
 	Node new_node = new Node(new_data);
@@ -57,6 +77,21 @@ class  LinkList{
 	}
 
 
+	public Node getNode(int key){
+
+		Node temp = head,curr_node=null;
+
+		while(temp!=null && temp.data!=key)
+		{
+
+			temp=temp.next;
+		}
+
+		return temp;
+
+
+	}
+
 	public static void main(String[] args){
 		Scanner s = new Scanner(System.in);
 		int option;
@@ -64,16 +99,20 @@ class  LinkList{
 		char yn;
 
 		LinkList list = new LinkList(); // Initilize the list
-		// Node first = new Node(1); // Creating 1st node
-		// Node second = new Node(2); // create 2nd node
-		// Node third = new Node(3); // create third node
+		Node first = new Node(1); // Creating 1st node
+		Node second = new Node(2); // create 2nd node
+		Node third = new Node(3); // create third node
 
-		// list.head = first; // connecting head to first node 
+		list.head = first; // connecting head to first node 
 
-		// first.next=second; // connecting first.next pointer to second node
-		// second.next=third; // connecting second.next pointer to third node
+		first.next=second; // connecting first.next pointer to second node
+		second.next=third; // connecting second.next pointer to third node
 
-		// list.printList();
+		 list.printList();
+
+		 Node test =list.getNode(2);
+
+		 System.out.println("the got node is "+test.data);
 
 		System.out.println("Please choose the option \n 1. insert at begening \n 2. Insert in after a node \n 3. Insert at the last");
 		option = s.nextInt();
@@ -105,6 +144,7 @@ class  LinkList{
 			break;
 
 			case 2:
+ 
 			int prev_num;
 			System.out.println("Please enter the number to insert");
 			System.out.print("Insert an element? (y/n) :");
@@ -117,7 +157,8 @@ class  LinkList{
 						num=s.nextInt();
 						System.out.print("previous number: ");
 						prev_num = s.nextInt();
-						list.insertNodeAfter(prev_num,num);
+
+						list.insertNodeAfter(list.getNode(prev_num),num);
 						System.out.print("Insert another element? (y/n) :");
 						yn=s.next().charAt(0);
 						if(yn=='n') break;
@@ -142,7 +183,7 @@ class  LinkList{
 					{
 						System.out.print("number: ");
 						num=s.nextInt();
-						list.pushNode(num);
+						list.insertNodeAtLast(num);
 						System.out.print("Insert another element? (y/n) :");
 						yn=s.next().charAt(0);
 						if(yn=='n') break;
