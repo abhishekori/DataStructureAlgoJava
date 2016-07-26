@@ -24,30 +24,30 @@ class  LinkList{
 	}
 
 
-	// void deleteNode(int key){
-	// 	Node temp=head,prev=null;
+	 void deleteNode(int key){
+		Node temp=head,prev=null;
 
-	// 	if(temp!=null && temp.data==key)
-	// 	{
-	// 		head=temp.next;
-	// 		return
-	// 	}
+		if(temp!=null && temp.data==key)
+		{
+			head=temp.next;
+			return;
+		}
 
-	// 	while(temp!=null && temp.data!=key)
-	// 	{
-	// 		prev=temp;
-	// 		temp=temp.next;
-	// 	}
+		while(temp!=null && temp.data!=key)
+		{
+			prev=temp;
+			temp=temp.next;
+		}
 
 
-	// 	prev.next=temp.next;
-	// }
+		prev.next=temp.next;
+	  }
 
 	void pushNode(int new_data){
 
-	Node new_node = new Node(new_data);
-	new_node.next=this.head;
-	this.head=new_node;
+	Node new_node = new Node(new_data); // create a new node
+	new_node.next=this.head; // point new node to node pointed by head
+	this.head=new_node;  // point head to new node
 
 
 
@@ -56,24 +56,24 @@ class  LinkList{
 	void insertNodeAfter(Node prev_node,int new_data){
 
 
-		Node new_node = new Node(new_data);
-		new_node.next=prev_node.next;
-		prev_node.next=new_node;
+		Node new_node = new Node(new_data); // create a node
+		new_node.next=prev_node.next; // point new node next to prev node next
+		prev_node.next=new_node; // point prev node next to new node 
 
 	}
 
 	void insertNodeAtLast(int new_data){
 
-		Node new_node = new Node(new_data);
-		new_node.next=null;
+		Node new_node = new Node(new_data); // create new node 
+		new_node.next=null; // point the next of new node to null as it ll be the last node
 
-		Node temp=this.head;
+		Node temp=this.head; 
 
-		while(temp.next!=null){
+		while(temp.next!=null){ // loop thorugh till you reach the last node
 			temp=temp.next;
 		}
 
-		temp.next=new_node;
+		temp.next=new_node; // point the current last node to new node
 	}
 
 
@@ -87,7 +87,7 @@ class  LinkList{
 			temp=temp.next;
 		}
 
-		return temp;
+		return temp;  // returns node of the data which has its content
 
 
 	}
@@ -114,7 +114,7 @@ class  LinkList{
 
 		 System.out.println("the got node is "+test.data);
 
-		System.out.println("Please choose the option \n 1. insert at begening \n 2. Insert in after a node \n 3. Insert at the last");
+		System.out.println("Please choose the option \n 1. insert at begening \n 2. Insert in after a node \n 3. Insert at the last \n 4. Delete a node");
 		option = s.nextInt();
 
 		switch(option){
@@ -197,7 +197,35 @@ class  LinkList{
 
 			break;
 
+			
+
+			case 4:
+
+			System.out.println("Please enter the number to Delete");
+			System.out.print("Delete an element? (y/n) :");
+			yn=s.next().charAt(0);
+				if(yn=='y')
+				{
+					while(true)
+					{
+						System.out.print("number: ");
+						num=s.nextInt();
+						list.deleteNode(num);
+						System.out.print("Delete another element? (y/n) :");
+						yn=s.next().charAt(0);
+						if(yn=='n') break;
+
+					}
+					System.out.print("List contents: ");
+					list.printList();
+					System.out.println();
+				}
+			  System.out.println("Thank you");
+
+			break;
+
 			default: System.out.print("Wrong option");
+
 
 		}
 
