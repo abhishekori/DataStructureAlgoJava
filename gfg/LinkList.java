@@ -92,6 +92,23 @@ class  LinkList{
 
 	}
 
+	public void deleteNodeByIndex(int index){
+
+		Node temp=head,prev=null;
+		int i=0;
+
+		while(temp!=null && i!=index){
+
+			i++;
+			prev=temp;
+			temp=temp.next;
+		}
+
+		prev.next=temp.next;
+
+
+	}
+
 	public static void main(String[] args){
 		Scanner s = new Scanner(System.in);
 		int option;
@@ -114,7 +131,7 @@ class  LinkList{
 
 		 System.out.println("the got node is "+test.data);
 
-		System.out.println("Please choose the option \n 1. insert at begening \n 2. Insert in after a node \n 3. Insert at the last \n 4. Delete a node");
+		System.out.println("Please choose the option \n 1. insert at begening \n 2. Insert in after a node \n 3. Insert at the last \n 4. Delete a node \n 5, delete node by index");
 		option = s.nextInt();
 
 		switch(option){
@@ -211,6 +228,31 @@ class  LinkList{
 						System.out.print("number: ");
 						num=s.nextInt();
 						list.deleteNode(num);
+						System.out.print("Delete another element? (y/n) :");
+						yn=s.next().charAt(0);
+						if(yn=='n') break;
+
+					}
+					System.out.print("List contents: ");
+					list.printList();
+					System.out.println();
+				}
+			  System.out.println("Thank you");
+
+			break;
+
+			case 5:
+
+			System.out.println("Please enter the index to Delete");
+			System.out.print("Delete an element? (y/n) :");
+			yn=s.next().charAt(0);
+				if(yn=='y')
+				{
+					while(true)
+					{
+						System.out.print("index: ");
+						num=s.nextInt();
+						list.deleteNodeByIndex(num);
 						System.out.print("Delete another element? (y/n) :");
 						yn=s.next().charAt(0);
 						if(yn=='n') break;
