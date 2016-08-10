@@ -15,6 +15,24 @@ class  LinkList{
 
 	}
 
+	static class Search{
+		int pos;
+		Boolean isPresent;
+
+		public Search(){
+			pos=-1;
+			isPresent=false;
+		}
+
+		public void set(int pos,Boolean isPresent){
+
+			this.pos=pos;
+			this.isPresent=isPresent;
+
+		}
+	}
+
+
 	void printList(){ // Print the items in the Link List
 		Node n = head;
 
@@ -124,6 +142,28 @@ class  LinkList{
 
 	}
 
+	public Search search(int key)
+	{
+		Search s = new Search();
+		Node h=this.head;
+		int count=0;
+
+		while(h!=null){
+			if(h.data==key){
+				s.set(count+1,true);
+				return s;
+			}
+			count++;
+			h=h.next;
+		}
+
+		return s;
+	}
+
+
+
+
+
 	public static void main(String[] args){
 		Scanner s = new Scanner(System.in);
 		int option;
@@ -146,7 +186,7 @@ class  LinkList{
 
 		 System.out.println("the got node is "+test.data);
 
-		System.out.println("Please choose the option \n 1. insert at begening \n 2. Insert in after a node \n 3. Insert at the last \n 4. Delete a node \n 5, delete node by index \n 6. Count the number of nodes");
+		System.out.println("Please choose the option \n 1. insert at begening \n 2. Insert in after a node \n 3. Insert at the last \n 4. Delete a node \n 5. delete node by index \n 6. Count the number of nodes\n 7. Search");
 		option = s.nextInt();
 
 		switch(option){
@@ -283,6 +323,20 @@ class  LinkList{
 
 			case 6:
 				System.out.println(list.getCount());
+				break;
+
+			case 7:
+				System.out.println("Please enter the key");
+				int key=s.nextInt();
+				Search sres=list.search(key);
+				//System.out.println("is present: "+sres.isPresent+" at Position "+sres.pos);
+				if(sres.isPresent)
+				{
+					System.out.println("The key is present at Position: "+sres.pos);
+
+				}else{
+					System.out.println("Sorry the element not present");
+				}
 				break;
 
 			default: System.out.print("Wrong option");
