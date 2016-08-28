@@ -160,6 +160,38 @@ class  LinkList{
 		return s;
 	}
 
+	public void swap_nodes(int x,int y){
+
+		Node prevX=null,currX=this.head;
+		while(currX!=null && currX.data!=x){
+
+			prevX=currX;
+			currX=currX.next;
+		}
+
+		Node prevY=null,currY=this.head;
+		while(currY!=null && currY.data!=y){
+			prevY=currY;
+			currY=currY.next;
+		}
+
+		if(prevX!=null){
+			prevX.next=currY;
+		}else{
+			this.head=currY;
+		}
+
+		if(prevY!=null){
+			prevY.next=currX;
+		}else{
+			this.head=currX;
+		}
+
+		Node temp=currX.next;
+		currX.next=currY.next;
+		currY.next=temp;
+	}
+
 
 
 
@@ -174,11 +206,13 @@ class  LinkList{
 		Node first = new Node(1); // Creating 1st node
 		Node second = new Node(2); // create 2nd node
 		Node third = new Node(3); // create third node
+		Node four = new Node(4); // create third node
 
 		list.head = first; // connecting head to first node
 
 		first.next=second; // connecting first.next pointer to second node
 		second.next=third; // connecting second.next pointer to third node
+		third.next=four;
 
 		 list.printList();
 
@@ -186,7 +220,7 @@ class  LinkList{
 
 		 System.out.println("the got node is "+test.data);
 
-		System.out.println("Please choose the option \n 1. insert at begening \n 2. Insert in after a node \n 3. Insert at the last \n 4. Delete a node \n 5. delete node by index \n 6. Count the number of nodes\n 7. Search");
+		System.out.println("Please choose the option \n 1. insert at begening \n 2. Insert in after a node \n 3. Insert at the last \n 4. Delete a node \n 5. delete node by index \n 6. Count the number of nodes\n 7. Search \n 8. Swap two numbers");
 		option = s.nextInt();
 
 		switch(option){
@@ -338,6 +372,17 @@ class  LinkList{
 					System.out.println("Sorry the element not present");
 				}
 				break;
+
+			case 8:
+			System.out.println("Enter two numbers");
+			int x,y;
+			x=s.nextInt();
+			y=s.nextInt();
+			list.swap_nodes(x,y);
+			System.out.print("List contents: ");
+			list.printList();
+			break;
+
 
 			default: System.out.print("Wrong option");
 
