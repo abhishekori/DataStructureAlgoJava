@@ -160,6 +160,21 @@ class  LinkList{
 		return s;
 	}
 
+	public int getNth(int n){
+		Node curr=this.head;
+
+		int co=0;
+		while(curr!=null){
+			if(co==n)
+			return curr.data;
+			co++;
+			curr=curr.next;
+
+			assert(false);
+			return 0;
+		}
+	}
+
 
 
 
@@ -186,7 +201,15 @@ class  LinkList{
 
 		 System.out.println("the got node is "+test.data);
 
-		System.out.println("Please choose the option \n 1. insert at begening \n 2. Insert in after a node \n 3. Insert at the last \n 4. Delete a node \n 5. delete node by index \n 6. Count the number of nodes\n 7. Search");
+		System.out.println("Please choose the option \n
+		1. insert at begening \n
+		2. Insert in after a node \n
+		3. Insert at the last \n
+		4. Delete a node \n
+		5. delete node by index \n
+		6. Count the number of nodes\n
+		7. Search
+		8. get Nth node in a link list");
 		option = s.nextInt();
 
 		switch(option){
@@ -338,6 +361,11 @@ class  LinkList{
 					System.out.println("Sorry the element not present");
 				}
 				break;
+
+			case 8:
+			System.out.println("Please enter the n value");
+			int n=s.nextInt();
+			System.out.println(list.getNth(n));
 
 			default: System.out.print("Wrong option");
 
