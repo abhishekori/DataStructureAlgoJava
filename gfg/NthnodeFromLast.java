@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class NthnodeFromLast extends LinkList{
 	
@@ -17,16 +18,17 @@ public class NthnodeFromLast extends LinkList{
 			
 		}
 		
-		System.out.println("The nth node from last is"+n2.data);
+		System.out.println("The nth node from last is "+n2.data);
 	}
-	
+
 
 	
 	public static void main(String[] args) {
 		
 		NthnodeFromLast n = new NthnodeFromLast();
 		n.printList();
-		n.nthNodeFromLast(5);
+		System.out.println("please enter the nth postion from last you want to see");
+		n.nthNodeFromLast(new Scanner(System.in).nextInt());
 		
 		
 	}

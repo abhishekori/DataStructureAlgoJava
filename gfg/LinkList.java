@@ -41,6 +41,7 @@ class  LinkList{
 		n7.next=n8;
 		n8.next=n9;
 		n9.next=n10;
+		//n10.next = n7;
 
 		// this.printList();
 
