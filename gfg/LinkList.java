@@ -15,6 +15,24 @@ class  LinkList{
 
 	}
 
+
+
+	public LinkList(){
+
+		Node first = new Node(1); // Creating 1st node
+		Node second = new Node(2); // create 2nd node
+		Node third = new Node(3); // create third node
+		LinkList list;
+		this.head = first; // connecting head to first node
+
+		first.next=second; // connecting first.next pointer to second node
+		second.next=third; // connecting second.next pointer to third node
+
+		 this.printList();
+
+
+	}
+
 	static class Search{
 		int pos;
 		Boolean isPresent;
@@ -186,16 +204,6 @@ class  LinkList{
 		char yn;
 
 		LinkList list = new LinkList(); // Initilize the list
-		Node first = new Node(1); // Creating 1st node
-		Node second = new Node(2); // create 2nd node
-		Node third = new Node(3); // create third node
-
-		list.head = first; // connecting head to first node
-
-		first.next=second; // connecting first.next pointer to second node
-		second.next=third; // connecting second.next pointer to third node
-
-		 list.printList();
 
 		 Node test =list.getNode(2);
 
