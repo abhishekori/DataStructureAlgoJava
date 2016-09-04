@@ -24,11 +24,11 @@ class  LinkList{
 		Node third = new Node(3); // create third node
 		Node n4 = new Node(4);
 		Node n5 = new Node(5);
-		//Node n6 = new Node(6);
-		//Node n7 = new Node(7);
-		//Node n8 = new Node(8);
-		//Node n9 = new Node(9);
-		//Node n10 = new Node(10);
+		Node n6 = new Node(6);
+		Node n7 = new Node(7);
+		Node n8 = new Node(8);
+		Node n9 = new Node(9);
+		Node n10 = new Node(10);
 		LinkList list;
 		this.head = first; // connecting head to first node
 
@@ -36,12 +36,12 @@ class  LinkList{
 		second.next=third; // connecting second.next pointer to third node
 		third.next=n4;
 		n4.next=n5;
-		//n5.next=n6;
-//		n6.next=n7;
-//		n7.next=n8;
-//		n8.next=n9;
-//		n9.next=n10;
-//		//n10.next = n7;
+		n5.next=n6;
+		n6.next=n7;
+		n7.next=n8;
+		n8.next=n9;
+		n9.next=n10;
+		//n10.next = n7;
 
 		// this.printList();
 
