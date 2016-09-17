@@ -17,6 +17,9 @@ public class CircularLinkList {
 		// TODO Auto-generated constructor stub
 		
 		head=null;
+//		this.push(3);
+//		this.push(2);
+//		this.push(1);
 	}
 	
 	void push(int num){
@@ -39,7 +42,7 @@ public class CircularLinkList {
 		head=newNode;
 	}
 	
-	void print(){
+	void print(Node head){
 		Node curr= head;
 		
 		if(curr!=null){
@@ -56,10 +59,10 @@ public class CircularLinkList {
 		
 		CircularLinkList circularLinkList = new CircularLinkList();
 		
-		circularLinkList.push(5);
-		circularLinkList.push(33);
+//		circularLinkList.push(5);
+//		circularLinkList.push(33);
 		//circularLinkList.push(23);
-		circularLinkList.print();
+		circularLinkList.print(circularLinkList.head);
 		
 	}
 
